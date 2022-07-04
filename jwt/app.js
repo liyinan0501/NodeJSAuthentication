@@ -5,7 +5,7 @@ const app = express()
 
 // TODO_01：安装并导入 JWT 相关的两个包，分别是 jsonwebtoken 和 express-jwt
 const jwt = require('jsonwebtoken')
-var { expressjwt: exjwt } = require('express-jwt')
+let { expressjwt } = require('express-jwt')
 
 // 允许跨域资源共享
 const cors = require('cors')
@@ -22,7 +22,7 @@ const secretKey = 'itheima No1 ^_^'
 // unless({ path: [/^\/api\//] }) 用来指定那些接口不需要访问权限
 // 注意：只要配置成功了express-jwt中间件，中间件就可以把解析出来的用户信息，挂载到 req.auth 属性上。
 app.use(
-  exjwt({ secret: secretKey, algorithms: ['HS256'] }).unless({
+  expressjwt({ secret: secretKey, algorithms: ['HS256'] }).unless({
     path: [/^\/api\//],
   })
 )
