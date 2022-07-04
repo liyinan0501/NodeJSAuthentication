@@ -50,7 +50,7 @@ app.post('/api/login', function (req, res) {
   res.send({
     status: 200,
     message: '登录成功！',
-    token: 'Bearer' + tokenStr, // 要发送给客户端的 token 字符串
+    token: 'Bearer ' + tokenStr, // 要发送给客户端的 token 字符串
   })
 })
 
